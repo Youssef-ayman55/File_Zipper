@@ -1,0 +1,34 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install Qt and build dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y build-essential qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools qt5-qmake
+
+    - name: Set Qt version
+      run: |
+        export QTDIR=/usr/lib/x86_64-linux-gnu/qt5
+        export PATH=$QTDIR/bin:$PATH
+
+    - name: Run qmake to generate Makefile
+      run: |
+        qmake
+
+    - name: Compile Qt project
+      run: make
+
+    - name: Clean up build artifacts
+      run: make clean
