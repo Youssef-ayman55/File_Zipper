@@ -73,13 +73,13 @@ To construct the Huffman Tree, the following steps are performed:
 Clone the project
 
 ```bash
-  git clone https://github.com/AdhamElRouby/fall2024-term-project-outliers.git
+  git clone https://github.com/Youssef-ayman55/File_Zipper.git
 ```
 
 Go to the project directory
 
 ```bash
-  cd .\fall2024-term-project-outliers
+  cd .\File_Zipper
 ```
 
 Open the project in Qt Creator
